@@ -23,11 +23,11 @@ const TaskSchema = new mongoose.Schema({
   },
   assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: TaskUserModel, // Assuming you have a User model
+    ref: TaskUserModel,
   },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: TaskUserModel, // The user who created the task
+    ref: TaskUserModel,
     required: true,
   },
   createdAt: {

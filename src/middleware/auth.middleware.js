@@ -9,6 +9,7 @@ const auth=(req,res,next)=>{
                 res.send(err);
             else{
                 req.body.userid=result.userid;
+                req.body.role=result.role;
                 next();
             }
         })

@@ -7,7 +7,7 @@ require('dotenv').config();
 
 userRouter.post('/register', async (req,res)=>{
     try{
-        const {username,email,password}=req.body;
+        const {username,email,password,role}=req.body;
         const isUserExist=await TaskUserModel.findOne({email});
         if(isUserExist)
             res.send("You are already Registerd user, Please login");
@@ -18,7 +18,7 @@ userRouter.post('/register', async (req,res)=>{
                     res.send(err);
                 else
                 {
-                    const newUser=new TaskUserModel({username,email,password:result});
+                    const newUser=new TaskUserModel({username,email,password:result,role});
                     newUser.save();
                     res.send("Registration successful");
                 }

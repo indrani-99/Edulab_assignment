@@ -1,10 +1,11 @@
-const access=(...roles)=>{
+const access=()=>{
     return (req,res,next)=>{
-       if(roles.includes("admin"))
+       if(req.body.role==='admin')
         next();
        else
        res.send("You don't have access");
     }
 }
 
-module.exports={access};
+module.exports={
+    access};
